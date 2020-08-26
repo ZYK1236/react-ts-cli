@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/home" component={Home}></Route>
           <Route path="/about" component={About}></Route>
           <Redirect from="/" to="/home"></Redirect>
-          <Button type="primary" onClick={showRightTime}>点击显示时间(正常说明model运行ing)</Button>
+          <Button type="primary" onClick={showRightTime}>点击显时间(显示时间说明model运行ing)</Button>
         </LayoutContent>
       </Content>
       <Footer style={{ textAlign: 'center' }}>react + ts脚手架</Footer>

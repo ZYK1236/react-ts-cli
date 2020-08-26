@@ -1,14 +1,14 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const  SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyjsWebpacPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  devServer: {
-    port: 3002,
-    historyApiFallback: true
-  },
+  mode: 'production',
   entry: {
     app: path.join(__dirname, './../', 'src/index.tsx')
   },
@@ -33,20 +33,16 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: 'style-loader',
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader'
-          },
+          }
         ]
       },
       {
         test: /\.less$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader'
           },
@@ -77,7 +73,24 @@ module.exports = {
     new BundleAnalyzerPlugin({
       analyzerPort: 3001,
       generateStatsFile: false
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
     })
   ],
-  devtool: 'source-map'
+  optimization: {
+    runtimeChunk: {
+      name: 'runtime'
+    },
+    splitChunks: {
+      cacheGroups: {
+        Vendors: {
+          name: 'vendors',
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          chunks: 'all'
+        }
+      }
+    }
+  }
 }
