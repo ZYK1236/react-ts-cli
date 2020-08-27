@@ -7,7 +7,7 @@ import qs from 'qs'
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: process.env.NODE_ENV == 'development' ? '' : '/', // api的base_url
+  baseURL: process.env.NODE_ENV == 'development' ? '/api' : '/', // api的base_url
   timeout: 50000 // 请求超时时间
 })
 

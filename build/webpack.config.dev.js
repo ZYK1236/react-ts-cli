@@ -2,13 +2,22 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const proxy = require('http-proxy-middleware');
 
 module.exports = {
   mode: 'development',
   devServer: {
     port: 3002,
-    historyApiFallback: true
+    historyApiFallback: true,
+    disableHostCheck: true,
+    proxy: {
+      '/api': {
+        // api表示当前项目请求的key
+        target: 'https://xdvolunteer.xyz', // 代理服务器路径
+        pathRewrite: { '^/api': '/' }, // 重写路径
+        changeOrigin: true
+      }
+    }
   },
   entry: {
     app: path.join(__dirname, './../', 'src/index.tsx')
