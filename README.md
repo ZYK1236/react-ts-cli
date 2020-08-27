@@ -10,3 +10,7 @@
 #### 功能四：使用符合vuex语法的react-model进行状态管理（这点存疑，因为redux很经典...，就是我用不习惯而已）
 
 #### 功能五：使用prettierrc来进行代码规范，团队协作开发时方便review代码和mr
+
+#### 功能六：打包优化，优化的文件用gzip压缩（配合nginx使用），优化后效果如图
+
+![d4RR6P.png](https://s1.ax1x.com/2020/08/27/d4RR6P.png)
