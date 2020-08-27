@@ -5,7 +5,7 @@ const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyjsWebpacPlugin = require('uglifyjs-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -76,6 +76,10 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
+    }),
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
+      threshold: 8192
     })
   ],
   optimization: {

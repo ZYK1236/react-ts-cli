@@ -8,7 +8,6 @@ module.exports = {
   mode: 'development',
   devServer: {
     port: 3002,
-    historyApiFallback: true,
     disableHostCheck: true,
     proxy: {
       '/api': {
