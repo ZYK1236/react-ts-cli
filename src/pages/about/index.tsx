@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Button } from 'antd'
-import { demo_post } from '../../service/api/demo'
+import { demo_post, demo_get } from '../../service/api'
 
 export default () => {
   const sendAjax = async () => {
@@ -8,7 +8,6 @@ export default () => {
       departmentAccount: 'zyksb',
       departmentPwd: '123qwe12'
     })
-    console.log(data.code, data.data, data.msg)
   }
 
   return (
