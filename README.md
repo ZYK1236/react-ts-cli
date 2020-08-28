@@ -1,4 +1,4 @@
-# [React-ts-cli 青鸢工作室基建的尝试](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
+# [青鸢fe-cli](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
 > 集成ts，react/router，antd，styledComponent（暂定），react-model（暂定）的脚手架,全部代码基于typescript编写 🐛
 
 #### 功能一：基于typescript，在编译阶段就可以检测编写代码时的错误 ❌
