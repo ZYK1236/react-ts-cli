@@ -1,10 +1,10 @@
 import { Layout, Menu, Breadcrumb, Button } from 'antd'
 import React, { useState, useEffect } from 'react'
 import { useHistory, Route, Redirect } from 'react-router-dom'
-import styled from 'styled-components'
 import { useStore } from '../../model/index'
 import Home from '../home'
 import About from '../about'
+import styles from './index.less'
 const { Header, Content, Footer } = Layout
 
 const App = () => {
@@ -39,24 +39,17 @@ const App = () => {
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <LayoutContent>
+        <div className={styles.layout}>
           <h1>{state.standardTime}</h1>
           <Route path="/home" component={Home}></Route>
           <Route path="/about" component={About}></Route>
           <Redirect from="/" to="/home"></Redirect>
           <Button type="primary" onClick={showRightTime}>点击显时间(显示时间说明model运行ing)</Button>
-        </LayoutContent>
+        </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>react + ts脚手架</Footer>
     </Layout>
   )
 }
-
-// css in js
-const LayoutContent = styled.div`
-  background: #fff;
-  padding: 24px;
-  min-height: 550px;
-`
 
 export default App
