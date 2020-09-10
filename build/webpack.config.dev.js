@@ -39,26 +39,51 @@ module.exports = {
           }
         ]
       },
+      // 对于第三方库不采用css module
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        include: /node_modules/
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader','less-loader'],
+        include: /node_modules/
+      },
+      // 对于src开发目录下的css文件采用css module
       {
         test: /\.css$/,
         use: [
           'style-loader',
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]'
+              }
+            }
           }
-        ]
+        ],
+        exclude: /node_modules/
       },
+      // less -> css module
       {
         test: /\.less$/,
         use: [
           'style-loader',
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]'
+              }
+            }
           },
           {
             loader: 'less-loader'
           }
-        ]
+        ],
+        exclude: /node_modules/
       }
     ]
   },

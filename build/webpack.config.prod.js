@@ -14,6 +14,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './../', 'dist'),
+    publicPath: './',
     filename: '[name].js'
   },
   module: {
@@ -30,6 +31,7 @@ module.exports = {
           }
         ]
       },
+      //  不对node_module中的css/less做module处理
       {
         test: /\.css$/,
         use: [
@@ -37,19 +39,52 @@ module.exports = {
           {
             loader: 'css-loader'
           }
-        ]
+        ],
+        include: /node_modules/
+      },
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'less-loader'
+        ],
+        include: /node_modules/
+      },
+
+      //  对src下的css和less做module处理
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]'
+              }
+            }
+          }
+        ],
+        exclude: /node_modules/
       },
       {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]'
+              }
+            }
           },
           {
             loader: 'less-loader'
           }
-        ]
+        ],
+        exclude: /node_modules/
       }
     ]
   },
@@ -76,6 +111,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
+      // chunkFilename: 'css/[id].css'
     }),
     new CompressionPlugin({
       test: /\.js(\?.*)?$/i,
