@@ -1,11 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'production',
@@ -15,7 +17,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, './../', 'dist'),
     publicPath: './',
-    filename: '[name].js'
+    filename: '[name]_[chunkhash:5].js'
   },
   module: {
     rules: [
@@ -44,11 +46,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'less-loader'
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
         include: /node_modules/
       },
 
@@ -110,13 +108,16 @@ module.exports = {
       generateStatsFile: false
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: 'css/[name]_[chunkhash:5].css'
       // chunkFilename: 'css/[id].css'
     }),
     new CompressionPlugin({
       test: /\.js(\?.*)?$/i,
       threshold: 8192
-    })
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new CleanWebpackPlugin(),
+    new OptimizeCSSAssetsPlugin()
   ],
   optimization: {
     runtimeChunk: {

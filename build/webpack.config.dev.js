@@ -1,12 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
-// const proxy = require('http-proxy-middleware');
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = {
   mode: 'development',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
+    hot: true,
     port: 3002,
     disableHostCheck: true,
     proxy: {
@@ -47,7 +48,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader','less-loader'],
+        use: ['style-loader', 'css-loader', 'less-loader'],
         include: /node_modules/
       },
       // 对于src开发目录下的css文件采用css module
@@ -103,7 +104,7 @@ module.exports = {
       filename: 'index.html',
       template: './public/index.html'
     }),
-    new SimpleProgressWebpackPlugin()
-  ],
-  devtool: 'source-map'
+    new SimpleProgressWebpackPlugin(),
+    new DashboardPlugin()
+  ]
 }

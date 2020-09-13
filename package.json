@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config build/webpack.config.dev.js --mode development --open --hot",
+    "start": "webpack-dashboard -- webpack-dev-server --config build/webpack.config.dev.js --mode development --open",
     "build": "webpack --config build/webpack.config.prod.js"
   },
   "author": "",
@@ -18,14 +18,15 @@
     "antd": "^4.6.1",
     "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.20.0",
+    "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^5.0.1",
     "css-loader": "^4.2.2",
     "html-webpack-plugin": "^4.3.0",
-    "http-proxy-middleware": "^1.0.5",
     "less": "^3.12.2",
     "less-loader": "^7.0.0",
     "mini-css-extract-plugin": "^0.10.0",
     "moment": "^2.27.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -35,10 +36,12 @@
     "simple-progress-webpack-plugin": "^1.1.2",
     "style-loader": "^1.2.1",
     "typescript": "^4.0.2",
-    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "webpack-dashboard": "^3.2.1"
   }
 }

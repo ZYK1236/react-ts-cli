@@ -4,6 +4,8 @@ import { demo_post, demo_get } from '../../service/api'
 import styles from './index.less'
 
 export default () => {
+  console.log(styles);
+  
   const sendAjax = async () => {
     const data = await demo_post({
       departmentAccount: 'zyk123',
@@ -15,6 +17,7 @@ export default () => {
     <Fragment>
       <h1 className={styles.a}>this is about</h1>
       <Button onClick={sendAjax}>发送ajax</Button>
+      <h2 id={styles.id}>try demo</h2>
       <br></br>
     </Fragment>
   )
