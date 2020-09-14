@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
-const DashboardPlugin = require('webpack-dashboard/plugin')
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
@@ -19,9 +19,10 @@ module.exports = {
       }
     }
   },
-  entry: {
-    app: path.join(__dirname, './../', 'src/index.tsx')
-  },
+  entry: [
+    'react-hot-loader/patch',
+    path.join(__dirname, './../', 'src/index.tsx')
+  ],
   output: {
     path: path.join(__dirname, './../', 'dist'),
     filename: '[name].js'
@@ -105,6 +106,7 @@ module.exports = {
       template: './public/index.html'
     }),
     new SimpleProgressWebpackPlugin(),
-    new DashboardPlugin()
+    // new DashboardPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }

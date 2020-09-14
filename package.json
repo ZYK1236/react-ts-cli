@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dashboard -- webpack-dev-server --config build/webpack.config.dev.js --mode development --open",
+    "start": "webpack-dev-server --config build/webpack.config.dev.js --open",
     "build": "webpack --config build/webpack.config.prod.js"
   },
   "author": "",
@@ -29,7 +29,6 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "qs": "^6.9.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "react-model": "^3.1.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.1.5",
@@ -42,6 +41,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
-    "webpack-dashboard": "^3.2.1"
+    "react-hot-loader": "^4.12.21",
+    "react-dom": "npm:@hot-loader/react-dom"
   }
 }

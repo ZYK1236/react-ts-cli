@@ -1,5 +1,5 @@
 import { Layout, Menu, Breadcrumb, Button } from 'antd'
-// import { hot } from 'react-hot-loader'
+import { hot } from 'react-hot-loader/root'
 import React, { useState, useEffect } from 'react'
 import { useHistory, Route, Redirect } from 'react-router-dom'
 import { useStore } from '../../model/index'
@@ -55,4 +55,4 @@ const App = () => {
   )
 }
 
-export default App
+export default hot(App)
