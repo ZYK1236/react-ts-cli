@@ -23,10 +23,6 @@ module.exports = {
     'react-hot-loader/patch',
     path.join(__dirname, './../', 'src/index.tsx')
   ],
-  output: {
-    path: path.join(__dirname, './../', 'dist'),
-    filename: '[name].js'
-  },
   module: {
     rules: [
       {
@@ -96,12 +92,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       // 打包输出HTML
       title: 'Hello World app',
-      minify: {
-        // 压缩HTML文件
-        removeComments: true, // 移除HTML中的注释
-        collapseWhitespace: true, // 删除空白符与换行符
-        minifyCSS: true // 压缩内联css
-      },
       filename: 'index.html',
       template: './public/index.html'
     }),

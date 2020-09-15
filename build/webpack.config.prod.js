@@ -36,12 +36,7 @@ module.exports = {
       //  不对node_module中的css/less做module处理
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader'
-          }
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
         include: /node_modules/
       },
       {
@@ -102,7 +97,6 @@ module.exports = {
       filename: 'index.html',
       template: './public/index.html'
     }),
-    new SimpleProgressWebpackPlugin(),
     new BundleAnalyzerPlugin({
       analyzerPort: 3001,
       generateStatsFile: false
@@ -117,6 +111,7 @@ module.exports = {
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new CleanWebpackPlugin(),
+    new SimpleProgressWebpackPlugin(),
     new OptimizeCSSAssetsPlugin()
   ],
   optimization: {
@@ -133,5 +128,6 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  devtool: 'source-map'
 }

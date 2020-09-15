@@ -1,5 +1,5 @@
 # [react-ts init](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
-> 集成ts，react/router，antd，styledComponent（暂定），react-model（暂定）的脚手架,全部代码基于typescript编写 🐛
+> 集成ts，react/router，antd，css modules(less)（暂定），react-model（暂定）的脚手架,全部代码基于typescript编写 🐛
 
 #### 功能一：基于typescript，在编译阶段就可以检测编写代码时的错误 ❌
 
@@ -11,6 +11,8 @@
 
 #### 功能五：使用prettierrc来进行代码规范，团队协作开发时方便review代码和mr
 
-#### 功能六：打包优化，优化的文件用gzip压缩（配合nginx使用），优化后效果如图
+#### 功能六：开发环境支持hmr
+
+#### 功能七：打包优化，并使用用gzip压缩js（配合nginx使用），优化后效果如图
 
 ![d4RR6P.png](https://s1.ax1x.com/2020/08/27/d4RR6P.png)

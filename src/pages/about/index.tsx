@@ -15,7 +15,7 @@ export default () => {
 
   return (
     <Fragment>
-      <h1 className={styles.a}>this is about</h1>
+      <h1 className={styles.a}>this is about!</h1>
       <Button onClick={sendAjax}>发送ajax</Button>
       <h2 id={styles.id}>try demo</h2>
       <br></br>
