@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config build/webpack.config.dev.js --open",
+    "dev": "webpack-dev-server --config build/webpack.config.dev.js --open",
     "build": "webpack --config build/webpack.config.prod.js"
   },
-  "author": "",
+  "author": "zyk",
   "license": "ISC",
   "dependencies": {
     "@types/qs": "^6.9.4",
