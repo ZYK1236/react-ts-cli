@@ -12,7 +12,7 @@ const renderRoot = (Com) =>
         <Com></Com>
       </Router>
     </Fragment>,
-    document.getElementById('app')
+    document.getElementById("app")
   )
 
 renderRoot(App)

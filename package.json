@@ -19,7 +19,9 @@
     "axios": "^0.20.0",
     "file-loader": "^6.1.0",
     "less": "^3.12.2",
+    "lodash": "^4.17.20",
     "moment": "^2.27.0",
+    "prettier": "^2.1.2",
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-model": "^3.1.4",
@@ -34,7 +36,9 @@
     "compression-webpack-plugin": "^5.0.1",
     "css-loader": "^4.2.2",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.0",
     "less-loader": "^7.0.0",
+    "lint-staged": "^10.5.0",
     "mini-css-extract-plugin": "^0.10.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "react-dom": "npm:@hot-loader/react-dom",
@@ -44,5 +48,15 @@
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "husky": {
+    "hook": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write"
+    ]
   }
 }
