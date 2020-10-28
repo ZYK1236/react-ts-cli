@@ -14,5 +14,4 @@ const renderRoot = (Com) =>
     </Fragment>,
     document.getElementById("app")
   )
-
 renderRoot(App)
