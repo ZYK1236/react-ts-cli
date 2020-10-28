@@ -9,7 +9,7 @@
 
 #### 功能四：使用符合vuex语法和支持hooks的react-model进行状态管理（这点存疑，因为redux很经典...，就是我用不习惯而已）
 
-#### 功能五：使用prettierrc来进行代码规范，团队协作开发时方便review代码和mr
+#### 功能五：使用prettierrc配合husky来进行代码规范，团队协作开发时方便review代码和mr
 
 #### 功能六：开发环境支持hmr
 
