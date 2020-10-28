@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "12"
+services:
+  - docker
+before_install:
+  - yarn
+script:
+  - yarn build
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker image build ./ -t xdzyk/react_ts_cli:latest
+  - docker image push xdzyk/react_ts_cli:latest

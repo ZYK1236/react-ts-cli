@@ -8,8 +8,8 @@ module.exports = {
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     hot: true,
-    port: 3002,
-    disableHostCheck: true,
+    port: 3001,
+    // disableHostCheck: true,
     proxy: {
       '/api': {
         // api表示当前项目请求的key
@@ -17,7 +17,8 @@ module.exports = {
         pathRewrite: { '^/api': '/' }, // 重写路径
         changeOrigin: true
       }
-    }
+    },
+    disableHostCheck: true,
   },
   entry: [
     'react-hot-loader/patch',

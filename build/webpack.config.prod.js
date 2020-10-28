@@ -97,10 +97,6 @@ module.exports = {
       filename: 'index.html',
       template: './public/index.html'
     }),
-    new BundleAnalyzerPlugin({
-      analyzerPort: 3001,
-      generateStatsFile: false
-    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name]_[chunkhash:5].css'
       // chunkFilename: 'css/[id].css'
