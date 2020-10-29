@@ -7,6 +7,8 @@ before_install:
   - yarn
 script:
   - yarn build
+  # 记得在travis ci中配置工作室的docker hub 用户名和密码
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker image build ./ -t xdzyk/react_ts_cli:latest
-  - docker image push xdzyk/react_ts_cli:latest
+  # 这里要把名字和项目名换一下
+  - docker image build ./ -t 工作室仓库名字/项目名字:latest
+  - docker image push 工作室仓库名字/项目名字:latest
