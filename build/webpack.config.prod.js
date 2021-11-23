@@ -25,11 +25,7 @@ module.exports = {
         test: /\.ts(x?)$/,
         use: [
           {
-            loader: 'awesome-typescript-loader',
-            options: {
-              useCache: true,
-              cacheDirectory: path.join(__dirname, './../', '.cache-dist')
-            }
+            loader: 'ts-loader',
           }
         ]
       },
